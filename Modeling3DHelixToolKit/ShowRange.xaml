@@ -1,0 +1,39 @@
+﻿<Window x:Class="Modeling3DHelixToolKit.ShowRange"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfWeCat3D"
+        mc:Ignorable="d"
+        Title="{DynamicResource showRangeTitleTxt}"
+        Closing="Window_Closing"
+        Height="310" Width="345">
+    <Grid>
+        <StackPanel>
+            <DataGrid x:Name="dataGridView2" HorizontalAlignment="Stretch" Height="300" VerticalAlignment="Center" AutoGenerateColumns="False" CanUserAddRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn MinWidth="50" Binding="{Binding From}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource distanceTabTableCol1}"></TextBlock>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn MinWidth="50" Binding="{Binding To}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource distanceTabTableCol2}"></TextBlock>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn MinWidth="50" Binding="{Binding SplitedProfiles}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource distanceTabTableCol3}"></TextBlock>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <!--<DataGridTextColumn MinWidth="50" Binding="{Binding SplitedDistance}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="{DynamicResource distanceTabTableCol4}"></TextBlock>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>-->
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Window>

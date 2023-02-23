@@ -1,0 +1,287 @@
+﻿<Window x:Class="Modeling3DHelixToolKit.ParameterDetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfWeCat3D"
+        mc:Ignorable="d"
+        Title="ParameterDetails" Height="676.4" Width="1013.2" Closing="Window_Closing">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition MinHeight="210"/>
+            <RowDefinition MinHeight="270"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <GroupBox Header="{DynamicResource paraDetWidthGrpTxt}" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" MinHeight="210" MinWidth="490">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Min" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Height="46" Width="57" Grid.ColumnSpan="2"/>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="1">
+                        <TextBox x:Name="widthMinTxt" HorizontalAlignment="Left" Height="46" FontSize="20" VerticalAlignment="Top" Width="167"
+                                 Text="{Binding MinWidth, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="0">
+                        <Label Content="Max" FontSize="20" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="46" Width="57"/>
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="1">
+                        <TextBox x:Name="widthMaxTxt" HorizontalAlignment="Left" Height="46" FontSize="20" VerticalAlignment="Top" Width="167"
+                                 Text="{Binding MaxWidth, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Grid.Row="2" Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="190"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Label Content="S =" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="0">
+                            <CheckBox x:Name="calculatedWidthChb" Content="{DynamicResource paraDetCalcWidthTxt}" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Height="23" Unchecked="calculatedWidthChb_Unchecked" Checked="calculatedWidthChb_Checked">
+                                <CheckBox.LayoutTransform>
+                                    <ScaleTransform ScaleX="1.7" ScaleY="1.7" />
+                                </CheckBox.LayoutTransform>
+                            </CheckBox>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="2" Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <TextBox x:Name="parameterRTxt" IsEnabled="False" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="167"/>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="parameterHTxt" IsEnabled="False" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="167" Grid.ColumnSpan="2"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </GroupBox>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition MinHeight="130"/>
+                <RowDefinition MinHeight="130"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <GroupBox Header="{DynamicResource paraDetDepthGrpTxt}" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" MinHeight="125" MinWidth="490">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Min" FontSize="20" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <TextBox x:Name="depthMinTxt" HorizontalAlignment="Left" Height="46" VerticalAlignment="Center" Width="167" FontSize="20"
+                                 Text="{Binding MinDepth, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0">
+                            <Label Content="Max" FontSize="20" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="1">
+                            <TextBox x:Name="depthMaxTxt" HorizontalAlignment="Left" Height="46" VerticalAlignment="Center" Width="167" FontSize="20"
+                                 Text="{Binding MaxDepth, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+            <Grid Grid.Row="1">
+                <GroupBox Grid.Column="1" Header="{DynamicResource paraDetTransitionGrpTxt}" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" MinHeight="125" MinWidth="490">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0">
+                            <Label Content="Min" FontSize="20" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <TextBox x:Name="transitionMinTxt" HorizontalAlignment="Left" Height="46" VerticalAlignment="Center" Width="167" FontSize="20"
+                             Text="{Binding MinTransition, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0">
+                            <Label Content="Max" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="1">
+                            <TextBox x:Name="transitionMaxTxt" HorizontalAlignment="Left" Height="46" VerticalAlignment="Center" Width="167" FontSize="20"
+                             Text="{Binding MaxTransition, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition MinHeight="140"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <GroupBox Grid.Column="1" Header="{DynamicResource paraGrpDirectDistanceTxt}" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" MinHeight="125" MinWidth="490">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0">
+                            <Label Content="Min" FontSize="20" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <TextBox x:Name="minWidthD5D0Txt" HorizontalAlignment="Left" Height="46" VerticalAlignment="Center" Width="167" FontSize="20"
+                             Text="{Binding MinWidthD5D0, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0">
+                            <Label Content="Max" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="1">
+                            <TextBox x:Name="maxD5D0TxtTxt" HorizontalAlignment="Left" Height="46" VerticalAlignment="Center" Width="167" FontSize="20"
+                             Text="{Binding MaxWidthD5D0, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </Grid>
+        <Grid Grid.RowSpan="2" Grid.Column="1">
+            <GroupBox Grid.Column="1" Header="{DynamicResource paraDetConstantGrpTxt}" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" MinHeight="210" MinWidth="490">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Grid.Column="0">
+                        <TextBlock FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Text="{DynamicResource paraDetMinGrpPointTxt}"></TextBlock>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="1">
+                        <TextBox x:Name="minGroupPointSizeTxt" HorizontalAlignment="Left" Height="46" VerticalAlignment="Center" Width="167" FontSize="20"
+                             Text="{Binding MinGroupPointSize, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="0">
+                        <TextBlock FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Text="{DynamicResource paraDetMinGrpPointFitLineTxt}"></TextBlock>
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="1">
+                        <TextBox x:Name="minGroupSizeOfValidPtsFitLineTxt" HorizontalAlignment="Left" Height="46" VerticalAlignment="Center" Width="167" FontSize="20"
+                             Text="{Binding MinGroupSizeOfValidPtsFitLine, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Grid.Row="2" Grid.Column="0">
+                        <TextBlock FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Text="{DynamicResource paraDetConvertDistTxt}"></TextBlock>
+                    </Grid>
+                    <Grid Grid.Row="2" Grid.Column="1">
+                        <TextBox x:Name="convertedMinDistanceConstantTxt" HorizontalAlignment="Left" Height="46" VerticalAlignment="Center" Width="167" FontSize="20"
+                             Text="{Binding ConvertedMinDistanceConstant, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Grid.Row="3" Grid.Column="0">
+                        <TextBlock FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Text="{DynamicResource paraDetMinDepthsPointTxt}"></TextBlock>
+                    </Grid>
+                    <Grid Grid.Row="3" Grid.Column="1">
+                        <TextBox x:Name="minDepthOfDeepestPointConstantTxt" HorizontalAlignment="Left" Height="46" VerticalAlignment="Center" Width="167" FontSize="20"
+                             Text="{Binding MinDepthOfDeepestPointConstant, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Grid.Row="4" Grid.Column="0">
+                        <TextBlock FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Bottom" TextWrapping="WrapWithOverflow" Text="{DynamicResource paraDistanceSearchAreaTxt}" Margin="0,0,0,6.8"></TextBlock>
+                    </Grid>
+                    <Grid Grid.Row="4" Grid.Column="1">
+                        <TextBox x:Name="distanceSearchAreaNeighborhoodTxt" HorizontalAlignment="Left" Height="46" VerticalAlignment="Center" Width="167" FontSize="20"
+                             Text="{Binding DistanceSearchAreaNeighborhood, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Grid.Row="5" Grid.Column="0">
+                        <TextBlock FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Text="{DynamicResource paraQuantityNeighborhood}"></TextBlock>
+                    </Grid>
+                    <Grid Grid.Row="5" Grid.Column="1">
+                        <TextBox x:Name="numberOfNeighborhoodTxt" HorizontalAlignment="Left" Height="46" VerticalAlignment="Center" Width="167" FontSize="20"
+                             Text="{Binding NumberOfNeighborhood, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Grid.Row="6" Grid.Column="0">
+                        <TextBlock FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Text="{DynamicResource paraMinDiferenceDistanceToCircle}"/>
+                    </Grid>
+                    <Grid Grid.Row="6" Grid.Column="1">
+                        <TextBox x:Name="distanceToCenterOfCircleTxt" HorizontalAlignment="Left" Height="46" VerticalAlignment="Center" Width="167" FontSize="20"
+                             Text="{Binding DistanceToCenterOfCircle, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Grid.Row="7" Grid.Column="0">
+                        <TextBlock FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Text="{DynamicResource paraGroupOfDistanceCircleTxt}"></TextBlock>
+                    </Grid>
+                    <Grid Grid.Row="7" Grid.Column="1">
+                        <TextBox x:Name="groupCircleDistanceTxt" HorizontalAlignment="Left" Height="46" VerticalAlignment="Center" Width="167" FontSize="20"
+                             Text="{Binding GroupCircleDistance, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                    <Grid Grid.Row="8" Grid.ColumnSpan="2">
+                        <CheckBox x:Name="skipStartEndChk" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Height="23" IsChecked="True">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="1.7" ScaleY="1.7" />
+                            </CheckBox.LayoutTransform>
+                            <TextBlock>
+                                <AccessText TextWrapping="Wrap" FontSize="9"
+                                    Text="{DynamicResource skipStartEndChkTxt}"/>
+                            </TextBlock>
+                        </CheckBox>
+                    </Grid>
+                </Grid>
+            </GroupBox>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Button Content="{DynamicResource paraDetApplyBtnTxt}" x:Name="applyBtn" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Width="124" Height="49" Click="applyBtn_Click"/>
+        </Grid>
+
+    </Grid>
+</Window> 

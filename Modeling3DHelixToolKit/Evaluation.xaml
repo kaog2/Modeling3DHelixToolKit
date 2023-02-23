@@ -1,0 +1,665 @@
+﻿<Window x:Class="Modeling3DHelixToolKit.Evaluation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:HelixToolkit="clr-namespace:HelixToolkit.Wpf;assembly=HelixToolkit.Wpf"
+        xmlns:local="clr-namespace:Modeling3DHelixToolKit"
+        mc:Ignorable="d"
+        Title="{DynamicResource evaluationTabTxt}" Height="828.15" Width="1500"
+        WindowState="Maximized">
+    <Window.Resources>
+        <local:ChangeColorCell x:Key="ChangeColorCell"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="18"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <StackPanel>
+                <Menu >
+                    <MenuItem Header="View" >
+                        <!--Header="{DynamicResource menu}"-->
+                        <MenuItem Header="Show on graph">
+                            <!--Header="{DynamicResource language}"-->
+                            <MenuItem Header="Profil" x:Name="graphShowProfil" StaysOpenOnClick="True" IsCheckable="True" Checked="showProfilChkbox_Checked" Unchecked="showProfilChkbox_Unchecked" IsChecked="True">
+                                <!--Header="{DynamicResource en}"-->
+                                <MenuItem.Icon>
+                                    <Rectangle Height="20">
+                                        <Rectangle.Fill>
+                                            <SolidColorBrush Color="Blue" />
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Circle" x:Name="graphShowCircle" StaysOpenOnClick="True" IsCheckable="True" Checked="showCircleChkbox_Checked" Unchecked="showCircleChkbox_Unchecked" IsChecked="True">
+                                <!--Header="{DynamicResource de}"-->
+                                <MenuItem.Icon>
+                                    <Rectangle Height="20">
+                                        <Rectangle.Fill>
+                                            <SolidColorBrush Color="IndianRed" />
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Base Plate" x:Name="graphShowBasePlate" StaysOpenOnClick="True" IsCheckable="True" Checked="showBaseplateChkbox_Checked" Unchecked="showBaseplateChkbox_Unchecked" IsChecked="True">
+                                <MenuItem.Icon>
+                                    <Rectangle Height="20">
+                                        <Rectangle.Fill>
+                                            <SolidColorBrush Color="Gray" />
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Poly regresion" x:Name="graphShowPolyRegresion" StaysOpenOnClick="True" IsCheckable="True" Checked="graphShowPolyRegresion_Checked"  Unchecked="graphShowPolyRegresion_Unchecked"  IsChecked="True">
+                                <MenuItem.Icon>
+                                    <Rectangle Height="20">
+                                        <Rectangle.Fill>
+                                            <SolidColorBrush Color="Gray" />
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Points" x:Name="graphPoints">
+                                <MenuItem Header="Show all" x:Name="graphShowAllPoints" StaysOpenOnClick="True" IsCheckable="True" Checked="showPointsChkbox_Checked" Unchecked="showPointsChkbox_Unchecked" IsChecked="True">
+                                    <MenuItem.Icon>
+                                        <Rectangle Height="16">
+                                            <Rectangle.Fill>
+                                                <SolidColorBrush Color="Green" />
+                                            </Rectangle.Fill>
+                                        </Rectangle>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="D0" x:Name="graphShowD0" StaysOpenOnClick="True" IsCheckable="True" Checked="graphShowD0_Checked" Unchecked="graphShowD0_Unchecked" IsChecked="True">
+                                    <MenuItem.Icon>
+                                        <Rectangle Height="16">
+                                            <Rectangle.Fill>
+                                                <SolidColorBrush Color="Green" />
+                                            </Rectangle.Fill>
+                                        </Rectangle>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="D1" x:Name="graphShowD1" StaysOpenOnClick="True" IsCheckable="True" Checked="graphShowD1_Checked" Unchecked="graphShowD1_Unchecked" IsChecked="True">
+                                    <MenuItem.Icon>
+                                        <Rectangle Height="16">
+                                            <Rectangle.Fill>
+                                                <SolidColorBrush Color="Green" />
+                                            </Rectangle.Fill>
+                                        </Rectangle>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="D2" x:Name="graphShowD2" StaysOpenOnClick="True" IsCheckable="True" Checked="graphShowD2_Checked" Unchecked="graphShowD2_Unchecked" IsChecked="True">
+                                    <MenuItem.Icon>
+                                        <Rectangle Height="16">
+                                            <Rectangle.Fill>
+                                                <SolidColorBrush Color="Green" />
+                                            </Rectangle.Fill>
+                                        </Rectangle>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="D3" x:Name="graphShowD3" StaysOpenOnClick="True" IsCheckable="True" Checked="graphShowD3_Checked" Unchecked="graphShowD3_Unchecked" IsChecked="True">
+                                    <MenuItem.Icon>
+                                        <Rectangle Height="16">
+                                            <Rectangle.Fill>
+                                                <SolidColorBrush Color="Green" />
+                                            </Rectangle.Fill>
+                                        </Rectangle>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="D4" x:Name="graphShowD4" StaysOpenOnClick="True" IsCheckable="True" Checked="graphShowD4_Checked" Unchecked="graphShowD4_Unchecked" IsChecked="True">
+                                    <MenuItem.Icon>
+                                        <Rectangle Height="16">
+                                            <Rectangle.Fill>
+                                                <SolidColorBrush Color="Green" />
+                                            </Rectangle.Fill>
+                                        </Rectangle>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="D5" x:Name="graphShowD5" StaysOpenOnClick="True" IsCheckable="True" Checked="graphShowD5_Checked" Unchecked="graphShowD5_Unchecked" IsChecked="True">
+                                    <MenuItem.Icon>
+                                        <Rectangle Height="16">
+                                            <Rectangle.Fill>
+                                                <SolidColorBrush Color="Green" />
+                                            </Rectangle.Fill>
+                                        </Rectangle>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="KP0" x:Name="graphShowK0" StaysOpenOnClick="True" IsCheckable="True" Checked="graphShowK0_Checked" Unchecked="graphShowK0_Unchecked" IsChecked="True">
+                                    <MenuItem.Icon>
+                                        <Rectangle Height="16">
+                                            <Rectangle.Fill>
+                                                <SolidColorBrush Color="Green" />
+                                            </Rectangle.Fill>
+                                        </Rectangle>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="KP1" x:Name="graphShowK1" StaysOpenOnClick="True" IsCheckable="True" Checked="graphShowK1_Checked" Unchecked="graphShowK1_Unchecked" IsChecked="True">
+                                    <MenuItem.Icon>
+                                        <Rectangle Height="16">
+                                            <Rectangle.Fill>
+                                                <SolidColorBrush Color="Green" />
+                                            </Rectangle.Fill>
+                                        </Rectangle>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="KP2" x:Name="graphShowK2" StaysOpenOnClick="True" IsCheckable="True" Checked="graphShowK2_Checked" Unchecked="graphShowK2_Unchecked" IsChecked="True">
+                                    <MenuItem.Icon>
+                                        <Rectangle Height="16">
+                                            <Rectangle.Fill>
+                                                <SolidColorBrush Color="Green" />
+                                            </Rectangle.Fill>
+                                        </Rectangle>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </MenuItem>
+                        </MenuItem>
+                    </MenuItem>
+                </Menu>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <TabControl>
+                <TabItem Header="{DynamicResource evaluationTabTxt}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="500"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition  Height="450"/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition ></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" Grid.Column="0">
+                                <GroupBox Header="{DynamicResource evaluationTabResumeGrpTxt}" HorizontalAlignment="Left" MinHeight="370" VerticalAlignment="Top" MinWidth="500">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="70" />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                                            <Label Content="{DynamicResource evaluationTabTotalProfileTxt}" ToolTip="{DynamicResource evaluationTabTotalProfileTip}" HorizontalAlignment="Left" Margin="29,36,0,0" VerticalAlignment="Top" Width="88"/>
+                                            <TextBox x:Name="totalAnalyzedProfilesTxt" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="122,36,0,0" VerticalAlignment="Top" Width="249"/>
+                                        </Grid>
+                                        <Grid Grid.Row="1" Grid.Column="0">
+                                            <GroupBox Header="{DynamicResource evaluationTabProfilGapGrpTxt}" HorizontalAlignment="Left" Height="110" VerticalAlignment="Top" Width="240">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="90"></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid Grid.Row="0" Grid.Column="0">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition MaxWidth="13"></ColumnDefinition>
+                                                            <ColumnDefinition></ColumnDefinition>
+                                                        </Grid.ColumnDefinitions>
+                                                        <Grid Grid.Column="0">
+                                                            <Button Width="10" HorizontalAlignment="Left" Height="20" Click="LabelShowRange_Click" ToolTip="{DynamicResource evaluationTabGapCountBtnTip}">
+                                                                <TextBlock Text="..." VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                                            </Button>
+                                                        </Grid>
+                                                        <Grid Grid.Column="1">
+                                                            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="WrapWithOverflow" Text="{DynamicResource evaluationTabGapCountTxt}" ToolTip="{DynamicResource evaluationTabGapCountTip}"/>
+                                                        </Grid>
+                                                    </Grid>
+                                                    <Grid Grid.Row="0" Grid.Column="1">
+                                                        <TextBox x:Name="profilTotalGapTxt" IsReadOnly="True" HorizontalAlignment="Center" Height="23"  VerticalAlignment="Center" Width="130"/>
+                                                    </Grid>
+                                                    <Grid Grid.Row="1" Grid.Column="0">
+                                                        <Label Content="Max" ToolTip="{DynamicResource evaluationTabGapMaxTip}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                                    </Grid>
+                                                    <Grid Grid.Row="1" Grid.Column="1">
+                                                        <TextBox x:Name="profilMaxGapTxt" IsReadOnly="True" HorizontalAlignment="Center" Height="23" VerticalAlignment="Center" Width="130"/>
+                                                    </Grid>
+                                                    <Grid Grid.Row="2" Grid.Column="0">
+                                                        <Label Content="{DynamicResource evaluationTabGapCountRatioTxt}" ToolTip="{DynamicResource evaluationTabGapCountRatioTip}" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                                                    </Grid>
+                                                    <Grid Grid.Row="2" Grid.Column="1">
+                                                        <TextBox x:Name="profilAverageGapTxt" IsReadOnly="True" HorizontalAlignment="Center" Height="23" VerticalAlignment="Center" Width="130"/>
+                                                    </Grid>
+                                                </Grid>
+                                            </GroupBox>
+                                        </Grid>
+                                        <Grid Grid.Row="1" Grid.Column="1">
+                                            <GroupBox Header="{DynamicResource evaluationTabWidthGrpTxt}" HorizontalAlignment="Left" Height="110"  VerticalAlignment="Top" Width="237">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="90"></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid Grid.Row="0" Grid.Column="0">
+                                                        <Label Content="{DynamicResource evaluationTabAverageTxt}" ToolTip="{DynamicResource evaluationTabAverageTip}" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+                                                    </Grid>
+                                                    <Grid Grid.Row="0" Grid.Column="1">
+                                                        <TextBox x:Name="widthAverageTxt" IsReadOnly="True" HorizontalAlignment="Center" Height="23" VerticalAlignment="Center" Width="130"/>
+                                                    </Grid>
+                                                    <Grid Grid.Row="1" Grid.Column="0">
+                                                        <Label Content="{DynamicResource evaluationTabOkCountTxt}" ToolTip="{DynamicResource evaluationTabOkCountTip}" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+                                                    </Grid>
+                                                    <Grid Grid.Row="1" Grid.Column="1">
+                                                        <TextBox x:Name="widthOkCountTxt" IsReadOnly="True" HorizontalAlignment="Center" Height="23"  VerticalAlignment="Center" Width="130"/>
+                                                    </Grid>
+                                                    <Grid Grid.Row="2" Grid.Column="0">
+                                                        <Label Content="{DynamicResource evaluationTabOkRatioTxt}" ToolTip="{DynamicResource evaluationTabOkRatioTip}" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+                                                    </Grid>
+                                                    <Grid Grid.Row="2" Grid.Column="1">
+                                                        <TextBox x:Name="widthOkTotalAverageTxt" IsReadOnly="True" HorizontalAlignment="Center" Height="23" VerticalAlignment="Center" Width="130"/>
+                                                    </Grid>
+                                                </Grid>
+                                            </GroupBox>
+                                        </Grid>
+                                        <Grid Grid.Row="2" Grid.Column="0">
+                                            <GroupBox Header="{DynamicResource evaluationTabDepthTxt}" HorizontalAlignment="Left" Height="110" VerticalAlignment="Top" Width="240">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="90"></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid Grid.Row="0" Grid.Column="0">
+                                                        <Label Content="{DynamicResource evaluationTabAverageTxt}" ToolTip="{DynamicResource evaluationTabAverageDepthTip}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                                    </Grid>
+                                                    <Grid Grid.Row="0" Grid.Column="1">
+                                                        <TextBox x:Name="depthAverageTxt" IsReadOnly="True" HorizontalAlignment="Center" Height="23" VerticalAlignment="Center" Width="130"/>
+                                                    </Grid>
+                                                    <Grid Grid.Row="1" Grid.Column="0">
+                                                        <Label Content="{DynamicResource evaluationTabOkCountTxt}" ToolTip="{DynamicResource evaluationTabDepthOkTip}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                                    </Grid>
+                                                    <Grid Grid.Row="1" Grid.Column="1">
+                                                        <TextBox x:Name="depthOkCountTxt" IsReadOnly="True" HorizontalAlignment="Center" Height="23" VerticalAlignment="Center" Width="130"/>
+                                                    </Grid>
+                                                    <Grid Grid.Row="2" Grid.Column="0">
+                                                        <Label Content="{DynamicResource evaluationTabOkRatioTxt}" ToolTip="{DynamicResource evaluationTabOkRatioDeepTip}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                                    </Grid>
+                                                    <Grid Grid.Row="2" Grid.Column="1">
+                                                        <TextBox x:Name="depthOkTotalAverageTxt" IsReadOnly="True" HorizontalAlignment="Center" Height="23" VerticalAlignment="Center" Width="130"/>
+                                                    </Grid>
+                                                </Grid>
+                                            </GroupBox>
+                                        </Grid>
+                                        <Grid Grid.Row="2" Grid.Column="1">
+                                            <GroupBox Header="{DynamicResource evaluationTabTransitionGrpTxt}" HorizontalAlignment="Left" Height="110" VerticalAlignment="Top" MinWidth="237">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="90"></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid Grid.Row="0" Grid.Column="0">
+                                                        <Label Content="{DynamicResource evaluationTabAverageTxt}" ToolTip="{DynamicResource evaluationTabTransitionTip}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                                    </Grid>
+                                                    <Grid Grid.Row="0" Grid.Column="1">
+                                                        <TextBox x:Name="transitionAverageTxt" IsReadOnly="True" HorizontalAlignment="Center" Height="23" VerticalAlignment="Center" Width="130"/>
+                                                    </Grid>
+                                                    <Grid Grid.Row="1" Grid.Column="0">
+                                                        <Label Content="{DynamicResource evaluationTabOkCountTxt}" ToolTip="{DynamicResource evaluationTabTransitionOkTip}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                                    </Grid>
+                                                    <Grid Grid.Row="1" Grid.Column="1">
+                                                        <TextBox x:Name="transitionOkCountTxt" IsReadOnly="True" HorizontalAlignment="Center" Height="23" VerticalAlignment="Center" Width="130"/>
+                                                    </Grid>
+                                                    <Grid Grid.Row="2" Grid.Column="0">
+                                                        <Label Content="{DynamicResource evaluationTabOkRatioTxt}" ToolTip="{DynamicResource evaluationTabOkRatioTransitTip}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                                    </Grid>
+                                                    <Grid Grid.Row="2" Grid.Column="1">
+                                                        <TextBox x:Name="transitionTotalAverage" IsReadOnly="True" HorizontalAlignment="Center" Height="23" VerticalAlignment="Center" Width="130"/>
+                                                    </Grid>
+                                                </Grid>
+                                            </GroupBox>
+                                        </Grid>
+                                    </Grid>
+                                </GroupBox>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition MinWidth="800"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition MinHeight="300"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" Grid.Column="0">
+                                <StackPanel>
+                                    <Label x:Name="coordinatesLbl" HorizontalAlignment="Center"></Label>
+                                    <WpfPlot Name="WpfPlot1" Width="800" Height="400" MouseMove="WpfPlot1_MouseMove"/>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Row="0" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="70"></RowDefinition>
+                                    <RowDefinition Height="350"></RowDefinition>
+                                    <RowDefinition Height="10"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <DockPanel Grid.Row="0" Grid.Column="0">
+                                    <TextBox x:Name="currentProfilTxt" HorizontalAlignment="Center" Height="23" VerticalAlignment="Center" Width="50"/>
+                                </DockPanel>
+                                <StackPanel Grid.Row="1" Grid.Column="0">
+                                    <Slider x:Name="trackBar1" Orientation="Vertical" TickFrequency="1" IsSnapToTickEnabled="True"  ValueChanged="trackBar1_ValueChanged" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="20" Height="330" MouseWheel="trackBar1_MouseWheel"
+                                        KeyUp="trackBar1_KeyUp"/>
+                                    <Button x:Name="resetZoomBtn1" Content="Reset zoom" HorizontalAlignment="Center" VerticalAlignment="Center" Width="70" Height="25" Click="resetZoomBtn1_Click" Visibility="Collapsed"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition MaxHeight="30"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right">
+                                <StackPanel>
+                                    <Button x:Name="exportResultBtn" Content="Export to CSV" Click="exportResultBtn_Click"  DockPanel.Dock="Top" MaxWidth="100"/>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Column="0" Grid.Row="1">
+                                <DataGrid x:Name="dataGridView1" HorizontalAlignment="Stretch" VerticalAlignment="Center" MinHeight="250" AutoGenerateColumns="False" Loaded="dataGridView1_Loaded" 
+                               MouseLeftButtonUp="dataGridView1_MouseLeftButtonUp" KeyUp="dataGridView1_KeyUp" CanUserAddRows="False">
+                                    <!--<DataGrid.RowStyle>
+                                            <Style TargetType="{x:Type DataGridRow}">
+                                                <Setter Property="Background" Value="{Binding ProcessEscapeTypeName, Converter={StaticResource ChangeColorCell}, ConverterParameter=row}"/>
+                                            </Style>
+                                        </DataGrid.RowStyle>-->
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn MinWidth="50" Binding="{Binding Path='Perfil'}" IsReadOnly="True">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource evaluationTabDatagridCol1}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn MinWidth="50" Binding="{Binding Path='PositionMM'}" IsReadOnly="True">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="Position (mm)"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn MinWidth="70" Binding="{Binding Path='Width'}" IsReadOnly="True">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource evaluationTabDatagridCol2}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn MinWidth="70" Binding="{Binding Path='WidthRatio'}" IsReadOnly="True">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource evaluationTabDatagridCol3}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                            <DataGridTextColumn.HeaderStyle>
+                                                <Style TargetType="DataGridColumnHeader">
+                                                    <Setter Property="ToolTip" Value="{DynamicResource evaluationTabDatagridTipCol3}"/>
+                                                </Style>
+                                            </DataGridTextColumn.HeaderStyle>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn MinWidth="100" Binding="{Binding Path='WidthD0D5'}" IsReadOnly="True">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource evaluationTabDatagridCol14}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                            <DataGridTextColumn.HeaderStyle>
+                                                <Style TargetType="DataGridColumnHeader">
+                                                    <Setter Property="ToolTip" Value="{DynamicResource evaluationTabDatagridColTip14}"/>
+                                                </Style>
+                                            </DataGridTextColumn.HeaderStyle>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn MinWidth="100" Binding="{Binding Path='WidthRelative'}" IsReadOnly="True">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource evaluationTabDatagridCol16}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                            <DataGridTextColumn.HeaderStyle>
+                                                <Style TargetType="DataGridColumnHeader">
+                                                    <Setter Property="ToolTip" Value="{DynamicResource evaluationTabDatagridColTip16}"/>
+                                                </Style>
+                                            </DataGridTextColumn.HeaderStyle>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn MinWidth="70" Binding="{Binding Path='Depth'}" IsReadOnly="True">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource evaluationTabDatagridCol4}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn MinWidth="70" Binding="{Binding Path='DepthScale'}" IsReadOnly="True">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource evaluationTabDatagridCol5}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                            <DataGridTextColumn.HeaderStyle>
+                                                <Style TargetType="DataGridColumnHeader">
+                                                    <Setter Property="ToolTip" Value="{DynamicResource evaluationTabDatagridTipCol5}"/>
+                                                </Style>
+                                            </DataGridTextColumn.HeaderStyle>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn MinWidth="70" Binding="{Binding Path='TransitionPointDistance'}" IsReadOnly="True">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource evaluationTabDatagridCol6}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn MinWidth="70" Binding="{Binding Path='TransitionPointScale'}" IsReadOnly="True">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource evaluationTabDatagridCol7}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                            <DataGridTextColumn.HeaderStyle>
+                                                <Style TargetType="DataGridColumnHeader">
+                                                    <Setter Property="ToolTip" Value="{DynamicResource evaluationTabDatagridTipCol7}"/>
+                                                </Style>
+                                            </DataGridTextColumn.HeaderStyle>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn MinWidth="70" Binding="{Binding Path='ProfileGap'}" IsReadOnly="True">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource evaluationTabDatagridCol8}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                            <DataGridTextColumn.ElementStyle>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Background" Value="{Binding Path='ProfileGap', Converter={StaticResource ChangeColorCell}, ConverterParameter=number}"/>
+                                                </Style>
+                                            </DataGridTextColumn.ElementStyle>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn MinWidth="70" Binding="{Binding Path='WidthD0D5Ok'}" IsReadOnly="True">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource evaluationTabDatagridCol15}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                            <DataGridTextColumn.ElementStyle>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Background" Value="{Binding Path='WidthD0D5Ok', Converter={StaticResource ChangeColorCell}}"/>
+                                                </Style>
+                                            </DataGridTextColumn.ElementStyle>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn MinWidth="70" Binding="{Binding Path='WidthOk'}" IsReadOnly="True">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource evaluationTabDatagridCol9}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                            <DataGridTextColumn.ElementStyle>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Background" Value="{Binding Path='WidthOk', Converter={StaticResource ChangeColorCell}}"/>
+                                                </Style>
+                                            </DataGridTextColumn.ElementStyle>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn MinWidth="70" Binding="{Binding Path='DepthOk'}" IsReadOnly="True">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource evaluationTabDatagridCol10}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                            <DataGridTextColumn.ElementStyle>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Background" Value="{Binding Path='DepthOk',Converter={StaticResource ChangeColorCell}}"/>
+                                                </Style>
+                                            </DataGridTextColumn.ElementStyle>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn MinWidth="100" Binding="{Binding Path='TransitionPointOk'}" IsReadOnly="True">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource evaluationTabDatagridCol11}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                            <DataGridTextColumn.ElementStyle>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Background" Value="{Binding Path='TransitionPointOk', Converter={StaticResource ChangeColorCell}}"/>
+                                                </Style>
+                                            </DataGridTextColumn.ElementStyle>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn MinWidth="100" Binding="{Binding Path='HadCircle'}" IsReadOnly="True">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource evaluationTabDatagridCol12}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                            <DataGridTextColumn.ElementStyle>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Background" Value="{Binding Path='HadCircle', Converter={StaticResource ChangeColorCell}}"/>
+                                                </Style>
+                                            </DataGridTextColumn.ElementStyle>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn MinWidth="100" Binding="{Binding Path='ProcessEscapeTypeName'}" IsReadOnly="True">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource evaluationTabDatagridCol13}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding Path='ProcessEscapeTypeId'}" Visibility="Collapsed">
+
+                                        </DataGridTextColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="{DynamicResource distanceTabTxt}" Visibility="Collapsed">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0">
+                            <StackPanel>
+                                <GroupBox Header="{DynamicResource distanceTabResumeGrpTxt}" HorizontalAlignment="Left" MinHeight="110" VerticalAlignment="Top" MinWidth="300">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="135"></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0" Grid.Column="0">
+                                            <Label Content="{DynamicResource distanceTabTotalProfTxt}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                        </Grid>
+                                        <Grid Grid.Row="0" Grid.Column="1">
+                                            <TextBox x:Name="totalProfilesTxt" HorizontalAlignment="Center" Height="23"  VerticalAlignment="Center" Width="130" IsReadOnly="True"/>
+                                        </Grid>
+                                        <Grid Grid.Row="1" Grid.Column="0">
+                                            <Label Content="{DynamicResource distanceTabTotalDistTxt}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <Grid Grid.Row="1" Grid.Column="1">
+                                            <TextBox x:Name="totalDistanceTxt" IsReadOnly="True" HorizontalAlignment="Center" Height="23" VerticalAlignment="Center" Width="130"/>
+                                        </Grid>
+                                        <Grid Grid.Row="2" Grid.Column="0">
+                                            <Label Content="{DynamicResource distanceTabTotalProfAnaTxt}" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                                        </Grid>
+                                        <Grid Grid.Row="2" Grid.Column="1">
+                                            <TextBox x:Name="totalAnalyzedTxt" IsReadOnly="True" HorizontalAlignment="Center" Height="23" VerticalAlignment="Center" Width="130"/>
+                                        </Grid>
+                                        <Grid Grid.Row="3" Grid.Column="0">
+                                            <Label  HorizontalAlignment="Left" VerticalAlignment="Top">
+                                                <TextBlock TextWrapping="Wrap" Text="{DynamicResource distanceTabTotalDistAnaTxt}"></TextBlock>
+                                            </Label>
+                                        </Grid>
+                                        <Grid Grid.Row="3" Grid.Column="1">
+                                            <TextBox x:Name="totalDistanceAnalyzedTxt" IsReadOnly="True" HorizontalAlignment="Center" Height="23" VerticalAlignment="Center" Width="130"/>
+                                        </Grid>
+                                        <Grid Grid.Row="4" Grid.Column="0">
+                                            <Label  HorizontalAlignment="Left" VerticalAlignment="Top">
+                                                <TextBlock TextWrapping="Wrap" Text="{DynamicResource distanceTabTotalProfNotAnaTxt}"></TextBlock>
+                                            </Label>
+                                        </Grid>
+                                        <Grid Grid.Row="4" Grid.Column="1">
+                                            <TextBox x:Name="totalNoAnalyzedTxt" IsReadOnly="True" HorizontalAlignment="Center" Height="23" VerticalAlignment="Center" Width="130"/>
+                                        </Grid>
+                                        <Grid Grid.Row="5" Grid.Column="0">
+                                            <Label HorizontalAlignment="Left" VerticalAlignment="Top">
+                                                <TextBlock TextWrapping="Wrap" Text="{DynamicResource distanceTabTotalDistNotAnaTxt}"></TextBlock>
+                                            </Label>
+                                        </Grid>
+                                        <Grid Grid.Row="5" Grid.Column="1">
+                                            <TextBox x:Name="totalNoDistanceAnalyzedTxt" IsReadOnly="True" HorizontalAlignment="Center" Height="23" VerticalAlignment="Center" Width="130"/>
+                                        </Grid>
+                                    </Grid>
+                                </GroupBox>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0">
+                            <StackPanel>
+                                <DataGrid x:Name="dataGridView2" HorizontalAlignment="Stretch" Height="300" VerticalAlignment="Center" MinWidth="1074" AutoGenerateColumns="False" CanUserAddRows="False">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn MinWidth="50" Binding="{Binding From}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource distanceTabTableCol1}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn MinWidth="50" Binding="{Binding To}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource distanceTabTableCol2}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn MinWidth="50" Binding="{Binding SplitedProfiles}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource distanceTabTableCol3}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn MinWidth="50" Binding="{Binding SplitedDistance}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource distanceTabTableCol4}"></TextBlock>
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+
+                            </StackPanel>
+
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="3D">
+
+                    <HelixToolkit:HelixViewport3D x:Name="ViewPort3D" Title="Profil" ZoomExtentsWhenLoaded="true" ShowViewCube="True" TextBrush="Transparent" Opacity="2" 
+                                      IsPanEnabled="True" IsRotationEnabled="True" IsMoveEnabled="True">
+                        <HelixToolkit:DefaultLights />
+                    </HelixToolkit:HelixViewport3D>
+
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </Grid>
+</Window>
